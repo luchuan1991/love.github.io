@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邓雅文，我爱你</title>
+</head>
+<body>
+<script>
+    var ua = navigator.userAgent.toLocaleLowerCase();
+        var pf = navigator.platform.toLocaleLowerCase();
+        var isAndroid = (/android/i).test(ua)||((/iPhone|iPod|iPad/i).test(ua) && (/linux/i).test(pf))
+             || (/ucweb.*linux/i.test(ua));
+    var isIOS =(/iPhone|iPod|iPad/i).test(ua) && !isAndroid;
+        var isWinPhone = (/Windows Phone|ZuneWP7/i).test(ua);
+
+        var mobileType = {
+                 pc:!isAndroid && !isIOS && !isWinPhone,
+                     ios:isIOS,
+                     android:isAndroid,
+                     winPhone:isWinPhone
+        };
+    if(mobileType.pc)
+        window.location.href="index_pc.html";
+    else  window.location.href="index_mo.html";
+
+        console.log(mobileType.pc);
+</script>
+</body>
+</html>
